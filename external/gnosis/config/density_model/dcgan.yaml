@@ -1,0 +1,15 @@
+_target_: gnosis.models.DCGAN
+name: dcgan
+ckpt_dir: test/${density_model.name}_${dataset.name}_${version}
+ckpt_pattern: "*generator_100000.ckpt"
+gen_cfg:
+  _target_: gnosis.models.DCGenerator
+  nc: 3
+  nz: 100
+  ngf: 64
+  output_dim: ${dataset.input_size}
+disc_cfg:
+  _target_: gnosis.models.DCDiscriminator
+  input_size: ${dataset.input_size}
+  nc: 3
+  ndf: 64

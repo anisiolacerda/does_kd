@@ -1,0 +1,4 @@
+name: brier
+alpha: 0.5
+init:
+  _target_: gnosis.distillation.BrierLoss

@@ -1,0 +1,4 @@
+name: sym_kl
+alpha: 0.5
+init:
+  _target_: gnosis.distillation.SymmetrizedKLLoss

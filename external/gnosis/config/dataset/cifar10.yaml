@@ -1,0 +1,33 @@
+init:
+  _target_: torchvision.datasets.CIFAR10
+  root: ${dataset_dir}/cifar10
+  download: True
+
+name: cifar10
+num_classes: 10
+input_size: 32
+shuffle_train_targets:
+  enabled: False
+  seed: 0
+  ratio: 1.0
+subsample:
+  ratio: 1.0
+  seed: 0
+  split: 0
+statistics:
+  mean_statistics:
+    - 0.4914
+    - 0.4822
+    - 0.4465
+  std_statistics:
+    - 0.2470
+    - 0.2435
+    - 0.2616
+  max:
+    - 1.0
+    - 1.0
+    - 1.0
+  min:
+    - 0.0
+    - 0.0
+    - 0.0

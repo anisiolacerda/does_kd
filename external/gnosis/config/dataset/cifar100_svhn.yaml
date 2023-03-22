@@ -1,0 +1,31 @@
+init:
+  _target_: gnosis.datasets.make_cifar100_svhn
+  root: ${dataset_dir}/cifar100_svhn
+  download: True
+  num_svhn_data: 10000
+  seed: 0
+
+name: cifar100_svhn
+num_classes: 100
+input_size: 32
+subsample:
+  ratio: 1.0
+  seed: 0
+  split: 0
+statistics:
+  mean_statistics:
+    - 0.5071
+    - 0.4867
+    - 0.4408
+  std_statistics:
+    - 0.2675
+    - 0.2565
+    - 0.2761
+  max:
+    - 1.0
+    - 1.0
+    - 1.0
+  min:
+    - 0.0
+    - 0.0
+    - 0.0
