@@ -1,8 +1,10 @@
 # fetch pre-trained teacher models
 
-mkdir -p save/models/
+output_dir='/srv/anisio/does_kd/output_distill_pretrained_teacher_models/'
 
-cd save/models
+mkdir -p ${output_dir}
+
+cd ${output_dir}
 
 mkdir -p wrn_40_2_vanilla
 wget http://shape2prog.csail.mit.edu/repo/wrn_40_2_vanilla/ckpt_epoch_240.pth

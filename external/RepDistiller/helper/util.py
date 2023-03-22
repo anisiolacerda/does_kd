@@ -3,6 +3,7 @@ from __future__ import print_function
 import torch
 import numpy as np
 
+import torchmetrics
 
 def adjust_learning_rate_new(epoch, optimizer, LUT):
     """
@@ -52,10 +53,21 @@ def accuracy(output, target, topk=(1,)):
 
         res = []
         for k in topk:
-            correct_k = correct[:k].view(-1).float().sum(0, keepdim=True)
+            correct_k = correct[:k].reshape(-1).float().sum(0, keepdim=True)
             res.append(correct_k.mul_(100.0 / batch_size))
         return res
 
+# TODO(@anisio): implement unit test for accuracy_ood
+# TODO(@anisio): include weights
+def accuracy_ood(output, target, device, topk=(1,)):
+    with torch.no_grad():
+        res = []
+        for k in topk:
+            accuracy = torchmetrics.Accuracy(topk=k).to(device)
+            acc = accuracy(output, target)
+            res.append(acc)
+
+        return res
 
 if __name__ == '__main__':
 
