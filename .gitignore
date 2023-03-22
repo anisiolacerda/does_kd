@@ -129,7 +129,6 @@ dmypy.json
 .pyre/
 
 data
-.vscode
 *.tgz
 output_ood_models/
 save/

@@ -1,0 +1,105 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "CollectResults",
+            "type": "python",
+            "request": "launch",
+            "program": "external/OoD-Bench/external/DomainBed/domainbed/scripts/collect_results.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--input_dir",
+                "output_ood_models/ColoredMNIST_IRM/resnet18/"
+            ],
+        },
+        {
+            "name": "TrainStudentCIFAR",
+            "type": "python",
+            "request": "launch",
+            "program": "external/RepDistiller/train_student.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--path_t",
+                "/srv/anisio/does_kd/output_distill_pretrained_teacher_models/resnet32x4_vanilla/ckpt_epoch_240.pth",
+                "--distill",
+                "kd",
+                "--model_s",
+                "resnet8",
+                "-a",
+                "0.9",
+                "-b",
+                "0",
+                "--trial",
+                "1",
+                "--dataset",
+                "cifar100",
+                "--batch_size",
+                "32"
+            ]
+        },
+        {
+            "name": "OOD:TrainStudentOfficeHome",
+            "type": "python",
+            "request": "launch",
+            "program": "external/RepDistiller/train_student_ood.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--ood_dir_models",
+                "/srv/anisio/does_kd/output_ood_models/",
+                "--distill",
+                "kd",
+                "--student_algorithm",
+                "ERM",
+                "--student_arch",
+                "resnet18",
+                "--teacher_arch",
+                "resnet50",
+                "-a",
+                "0.5",
+                "-b",
+                "0.8",
+                "--trial",
+                "1",
+                "--dataset",
+                "OfficeHome",
+                "--data_dir",
+                "/srv/anisio/does_kd/data",
+                "--steps",
+                "3",
+                "--batch_size",
+                "32",
+                "--checkpoint_freq",
+                "2",
+                "--weight_decay",
+                "0",
+                "--learning_rate",
+                "0.001"
+            ]
+        },
+        {
+            "name": "DomainBed:OfficieHome",
+            "type": "python",
+            "request": "launch",
+            "program": "external/OoD-Bench/external/DomainBed/domainbed/scripts/train.py",
+            "justMyCode": false,
+            "args": [
+                "--data_dir",
+                "/srv/anisio/does_kd/data/",
+                "--algorithm",
+                "ERM",
+                "--dataset",
+                "OfficeHome",
+                "--test_env",
+                "2",
+                "--teacher_arch",
+                "resnet18"
+            ]
+        }
+    ]
+}
