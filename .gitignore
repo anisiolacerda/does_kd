@@ -132,3 +132,5 @@ data
 *.tgz
 output_ood_models/
 save/
+*.swp
+*.deb

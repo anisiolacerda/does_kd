@@ -80,10 +80,14 @@ class ResNet(torch.nn.Module):
 
         if hparams['teacher_arch'] == 'resnet18':
             self.network = torchvision.models.resnet18(weights=ResNet18_Weights.DEFAULT)
-            # self.n_outputs = 512
+        elif hparams['teacher_arch'] == 'resnet34':
+            self.network = torchvision.models.resnet34(weights=ResNet34_Weights.DEFAULT)
         elif hparams['teacher_arch'] == 'resnet50':
             self.network = torchvision.models.resnet50(weights=ResNet50_Weights.DEFAULT)
-            # self.n_outputs = 2048
+        elif hparams['teacher_arch'] == 'resnet101':
+            self.network = torchvision.models.resnet101(weights=ResNet101_Weights.DEFAULT)
+        elif hparams['teacher_arch'] == 'resnet152':
+            self.network = torchvision.models.resnet152(weights=ResNet152_Weights.DEFAULT)
         else:
             raise NotImplemented
 

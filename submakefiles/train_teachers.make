@@ -1,8 +1,9 @@
-train_erm_teachers: train_erm_terra_incognita train_erm_celeba train_erm_pacs train_erm_nico
-#train_erm_colored_mnist train_erm_officehome train_erm_nico ## train teacher architecture BLA on all OoD data
+train_erm_teachers: train_erm_officehome train_erm_wilds_camelyon train_erm_celeba
+# train_erm_terra_incognita train_erm_celeba train_erm_pacs train_erm_nico
+#train_erm_colored_mnist train_erm_nico ## train teacher architecture BLA on all OoD data
 n_hparams = 2
 n_trials = 4
-teacher_arch = 'resnet50'
+teacher_arch = 'resnet18'
 
 train_erm_colored_mnist: 
 	cd /srv/anisio/does_kd/external/OoD-Bench/external/DomainBed;\
