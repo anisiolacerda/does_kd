@@ -1,6 +1,11 @@
+<<<<<<< Updated upstream
 train_erm_teachers: train_erm_officehome train_erm_wilds_camelyon train_erm_celeba
 # train_erm_terra_incognita train_erm_celeba train_erm_pacs train_erm_nico
 #train_erm_colored_mnist train_erm_nico ## train teacher architecture BLA on all OoD data
+=======
+train_erm_teachers: train_erm_wilds_camelyon train_erm_terra_incognita train_erm_officehometrain_erm_celeba train_erm_pacs train_erm_nico train_erm_colored_mnist
+#train_erm_colored_mnist  train_erm_nico ## train teacher architecture BLA on all OoD data
+>>>>>>> Stashed changes
 n_hparams = 2
 n_trials = 4
 teacher_arch = 'resnet34'

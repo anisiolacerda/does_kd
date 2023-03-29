@@ -94,7 +94,11 @@ def get_augment_transform(scheme_name='default', input_size=224):
 class MultipleDomainDataset:
     N_STEPS = 5001           # Default, subclasses may override
     CHECKPOINT_FREQ = 100    # Default, subclasses may override
+<<<<<<< Updated upstream
     N_WORKERS = 8            # Default, subclasses may override
+=======
+    N_WORKERS = 8           # Default, subclasses may override
+>>>>>>> Stashed changes
     ENVIRONMENTS = None      # Subclasses should override
     INPUT_SHAPE = None       # Subclasses should override
 
