@@ -191,7 +191,7 @@ if __name__ == "__main__":
     parser.add_argument('--skip_model_save', action='store_true')
     parser.add_argument('--save_model_every_checkpoint', default=True, action='store_true')
     parser.add_argument('--teacher_arch', type=str, 
-        choices=['resnet18', 'resnet50'])
+        choices=['resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152'])
     # , 'resnet14', 'resnet20', 'resnet32', 'resnet44', 'resnet56', 'resnet110',
                 #  'resnet8x4', 'resnet32x4', 'wrn_16_1', 'wrn_16_2', 'wrn_40_1', 'wrn_40_2',
                 #  'vgg8', 'vgg11', 'vgg13', 'vgg16', 'vgg19',
