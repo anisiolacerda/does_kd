@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.models
-from torchvision.models.resnet import ResNet18_Weights, ResNet50_Weights
+from torchvision.models.resnet import ResNet18_Weights, ResNet34_Weights, ResNet50_Weights, ResNet101_Weights, ResNet152_Weights
 
 from domainbed.lib import wide_resnet
 import copy
